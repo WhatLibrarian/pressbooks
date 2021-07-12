@@ -479,8 +479,8 @@ class Xhtml11 extends ExportGenerator {
 	 *
 	 * @see http://www.princexml.com/doc/8.1/footnotes/
 	 *
-	 * @param      $atts
-	 * @param null $content
+	 * @param       $atts
+	 * @param null  $content
 	 *
 	 * @return string
 	 */
@@ -708,7 +708,7 @@ class Xhtml11 extends ExportGenerator {
 				if ( $fragment ) {
 					// Check if a fragment is considered external, don't change the URL if we find a match
 					$external_anchors = [ \Pressbooks\Interactive\Content::ANCHOR ];
-					if ( in_array( "#{$fragment}", $external_anchors, true ) ) {
+					if ( in_array( "#{$fragment}", $external_anchors, true ) || str_starts_with( $fragment, 'h5p' ) ) {
 						continue;
 					} else {
 						$link->setAttribute( 'href', "#{$fragment}" );
